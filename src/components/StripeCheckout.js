@@ -46,6 +46,7 @@ const CheckoutForm = () => {
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
+    let forTimeout;
     setProcessing(true);
     const payload = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
@@ -59,11 +60,12 @@ const CheckoutForm = () => {
       setError(null)
       setProcessing(false);
       setSucceeded(true);
-      setTimeout(() => {
+      forTimeout = setTimeout(() => {
         clearCart();
         navigate("/");
       }, 10000);
     }
+    return () => clearTimeout(forTimeout);
   }
 
   const cardStyle = {
