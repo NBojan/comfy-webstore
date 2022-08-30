@@ -10,7 +10,6 @@ import {
 import axios from 'axios'
 import { useCartContext } from '../context/cart_context';
 import { formatPrice } from "../helpers/helpers";
-import { useNavigate } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const promise = loadStripe(process.env.REACT_APP_PUBLIC_KEY);
@@ -18,7 +17,6 @@ const promise = loadStripe(process.env.REACT_APP_PUBLIC_KEY);
 const CheckoutForm = () => {
   const {total_amount, shipping, clearCart} = useCartContext();
   const { user, isAuthenticated } = useAuth0();
-  const navigate = useNavigate();
   //stripe stuff
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
@@ -46,7 +44,6 @@ const CheckoutForm = () => {
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
-    let forTimeout;
     setProcessing(true);
     const payload = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
@@ -60,12 +57,10 @@ const CheckoutForm = () => {
       setError(null)
       setProcessing(false);
       setSucceeded(true);
-      forTimeout = setTimeout(() => {
+      setTimeout(() => {
         clearCart();
-        navigate("/");
-      }, 10000);
+      }, 6000);
     }
-    return () => clearTimeout(forTimeout);
   }
 
   const cardStyle = {
@@ -92,7 +87,7 @@ const CheckoutForm = () => {
         <article className='mb-20'>
           <h4 className='col-title'>Thank you</h4>
           <h4 className='col-title'>Your payment was successful</h4>
-          <h4 className='col-title'>Redirecting to the home page shortly</h4>
+          <h4 className='col-title'>Gently clearing up the cart...</h4>
         </article>
       :
         <article className='greet-text mb-20'>
