@@ -75,9 +75,11 @@ const Filters = () => {
 const Wrapper = styled.section`
     width: 200px;
     margin-right: 32px;
-    position: sticky;
-    top: 0;
 
+    form {
+        position: sticky;
+        top: 16px;
+    }
     .form-control {
         margin-bottom: 20px;
     }
@@ -150,7 +152,10 @@ const Wrapper = styled.section`
     @media (max-width: 767px){
         margin-right: 0;
         margin-bottom: 32px;
-        position: initial;
+
+        form {
+            position: initial;
+        }
     }
 `
 export default Filters;
