@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import image1 from "../assets/hero-bcg.jpeg";
-import image2 from "../assets/hero-bcg-2.jpeg";
+import image1 from "../assets/hero-bcg.jpg";
+import image2 from "../assets/hero-bcg-2.jpg";
 import { Link } from "react-router-dom";
 
 const Landing = () => {

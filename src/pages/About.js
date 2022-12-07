@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { PageHero } from "../components";
-import image from "../assets/hero-bcg.jpeg";
+import image from "../assets/hero-bcg.jpg";
 
 const About = () => {
     return (  
