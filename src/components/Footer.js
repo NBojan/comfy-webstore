@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Footer = () => {
     return (  
         <Wrapper>
-            <p>&copy; 2022 <span>ComfySloth</span></p>
+            <p>&copy; 2022 <span>NBStore</span></p>
             <p>All rights reserved</p>
         </Wrapper>
     );

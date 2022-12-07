@@ -43,7 +43,7 @@ const Wrapper = styled.section`
     height: 80px;
 
     img {
-        width: 175px;
+        width: 150px;
     }
     .nav-links {
         display: none;

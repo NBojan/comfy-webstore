@@ -2027,7 +2027,7 @@ font-size: 18px;
 .underline {
 	width: 128px;
 	height: 4px;
-	background: hsl(22, 31%, 52%);
+	background: var(--clr-primary-5);
 	border-radius: 12px;
   }
 /*LOADER animation*/
